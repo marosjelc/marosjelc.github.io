@@ -7,7 +7,7 @@ import { Fade as Hamburger } from 'hamburger-react';
 function App() {
   const [expanded, setExpanded] = useState(false);
   return (
-    <div className="App">
+    <div className="App"> 
       <Navbar sticky="top" className="AppNavbar" expand="lg" expanded={expanded}>
         <Container>
           <Navbar.Brand><span className="brand">marosjelc.</span></Navbar.Brand>
