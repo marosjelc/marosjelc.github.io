@@ -23,16 +23,16 @@ function App() {
           <Navbar.Collapse id="navbar-expandable">
             <Nav className="me-auto AppNavbarNav">
               <Nav.Item className="AppNavbarNavItem">
-                <Nav.Link href="/#home">Home</Nav.Link>
+                <Nav.Link href="#home">Home</Nav.Link>
               </Nav.Item>
               <Nav.Item className="AppNavbarNavItem">
-                <Nav.Link href="/#about">About me</Nav.Link>
+                <Nav.Link href="#about">About me</Nav.Link>
               </Nav.Item>
               <Nav.Item className="AppNavbarNavItem">
-                <Nav.Link href="/#blog">Blog</Nav.Link>
+                <Nav.Link href="#blog">Blog</Nav.Link>
               </Nav.Item>
               <Nav.Item className="AppNavbarNavItem">
-                <Nav.Link href="/#contact">Contact</Nav.Link>
+                <Nav.Link href="#contact">Contact</Nav.Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
