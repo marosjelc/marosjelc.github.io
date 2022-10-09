@@ -1,12 +1,14 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
-import { Navbar, Container, Nav, Row, Col, Image } from 'react-bootstrap';
+import { Navbar, Container, Nav, Row, Col, Image, Button } from 'react-bootstrap';
 import './App.scss';
 import { Fade as Hamburger } from 'hamburger-react';
+import { FaGithub, FaInstagram, FaFacebook, FaSpotify, FaDiscord } from "react-icons/fa";
 
 function App() {
   const [expanded, setExpanded] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 576);
+  const [isLandscape, setIsLandscape] = useState(window.innerWidth < 768);
   const [, setDimensions] = useState({height: window.innerHeight, width: window.innerWidth})
   
   useEffect(() => {
@@ -17,11 +19,19 @@ function App() {
     }, false);
   }, [isMobile]);
 
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setDimensions({height: window.innerHeight, width: window.innerWidth})
+      const islandscape = window.innerWidth < 768;
+      if (islandscape !== isLandscape) setIsLandscape(isLandscape);
+    }, false);
+  }, [isLandscape]);
+
   return (
     <div className="App"> 
       <Navbar fixed="top" className="AppNavbar" expand="lg" expanded={expanded}>
-        <Container>
-          <Navbar.Brand className=""><span className="AppNavbarBrand fs-2"></span></Navbar.Brand>
+        <Container className={`${isLandscape ? "min-vw-100" : ""}`}>
+          <Navbar.Brand className=""><span className="AppNavbarBrand fs-2">marosjelc.</span></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-expandable" className="burger">
             <Hamburger 
               duration={0.8}
@@ -32,7 +42,7 @@ function App() {
             />
           </Navbar.Toggle>
           <Navbar.Collapse id="navbar-expandable" className="justify-content-center">
-            <Nav className={`${expanded ? "expandedClass" : "w-50 justify-content-evenly"}`} defaultActiveKey="#home">
+            <Nav className={`${expanded ? "" : "w-50 justify-content-evenly"}`} defaultActiveKey="#home">
               <Nav.Item className="AppNavbarNavItem">
                 <Nav.Link href="#home">Home</Nav.Link>
               </Nav.Item>
@@ -53,7 +63,7 @@ function App() {
         </Container>
       </Navbar>
       <section id="home" className="sectionHome d-flex justify-content-center align-items-center">
-        <Container className="min-vh-100 d-flex justify-content-center align-items-center">
+        <Container className="min-vw-100 min-vh-100 d-flex justify-content-center align-items-center">
           <Row 
             xs={1} 
             sm={2} 
@@ -65,7 +75,7 @@ function App() {
           >
             <Col 
               xs={{order: "last"}} 
-              sm={{order: "first"}} 
+              sm={{span: 6, order: "first"}} 
               md={{order: "first"}} 
               lg={{order: "first"}} 
               xl={{order: "first"}} 
@@ -79,12 +89,20 @@ function App() {
                 lg={1} 
                 xl={1} 
                 xxl={1}
+                className=""
               >
                 <Col>
                   <h1>Hello, I'm Maroš</h1>
                 </Col>
                 <Col>
                   Programmer, Content creator, Visual Novel Architect and more...
+                </Col>
+                <Col>
+                  <Button href="#" className="socialButton"><FaGithub className="fs-2" /></Button>
+                  <Button href="#" className="socialButton"><FaInstagram className="fs-2" /></Button>
+                  <Button href="#" className="socialButton"><FaFacebook className="fs-2" /></Button>
+                  <Button href="#" className="socialButton"><FaSpotify className="fs-2" /></Button>
+                  <Button href="#" className="socialButton"><FaDiscord className="fs-2" /></Button>
                 </Col>
               </Row>
             </Col>

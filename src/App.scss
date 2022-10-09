@@ -22,6 +22,8 @@ body {
 
 .burger {
   border: 0;
+  margin-right: 0;
+  padding-right: 0;
 }
 
 .pt-6 {
@@ -43,14 +45,19 @@ body {
   font-family: "Cairo Play";
 }
 
-.AppNavbarNav {
-
+.socialButton {
+  border: 0;
+  background: none;
+  color: #000;
+  &.socialButton:hover {
+    color: #000;
+    background: none;
+    border: 0;
+    outline: none !important;
+    outline-offset: none !important;
+    box-shadow: none !important;
+  } 
 }
-
-.AppNavbarNavItem {
-
-}
-
 .sectionHome {
   min-height: 100vh;
 }
