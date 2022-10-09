@@ -1,17 +1,28 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Navbar, Container, Nav, Row, Col, Image } from 'react-bootstrap';
 import './App.scss';
 import { Fade as Hamburger } from 'hamburger-react';
 
 function App() {
   const [expanded, setExpanded] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 576);
+  const [, setDimensions] = useState({height: window.innerHeight, width: window.innerWidth})
+  
+  useEffect(() => {
+    window.addEventListener("resize", () => {
+      setDimensions({height: window.innerHeight, width: window.innerWidth})
+      const ismobile = window.innerWidth < 576;
+      if (ismobile !== isMobile) setIsMobile(isMobile);
+    }, false);
+  }, [isMobile]);
+
   return (
     <div className="App"> 
       <Navbar fixed="top" className="AppNavbar" expand="lg" expanded={expanded}>
         <Container>
-          <Navbar.Brand><span className="AppNavbarBrand fs-2">marosjelc.</span></Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbar-expandable">
+          <Navbar.Brand className="red"><span className="AppNavbarBrand fs-2"></span></Navbar.Brand>
+          <Navbar.Toggle aria-controls="navbar-expandable" className="burger">
             <Hamburger 
               duration={0.8}
               size={26} 
@@ -20,7 +31,7 @@ function App() {
               toggle={() => setExpanded(expanded ? false : true)} 
             />
           </Navbar.Toggle>
-          <Navbar.Collapse id="navbar-expandable">
+          <Navbar.Collapse id="navbar-expandable" className="justify-content-center">
             <Nav className="AppNavbarNav">
               <Nav.Item className="AppNavbarNavItem">
                 <Nav.Link href="#home">Home</Nav.Link>
@@ -47,9 +58,17 @@ function App() {
             lg={2} 
             xl={2} 
             xxl={2}
-            className=""
+            className={`${isMobile ? "" : ""}`}
           >
-            <Col className="d-flex justify-content-center align-items-center">
+            <Col 
+              xs={{order: "last"}} 
+              sm={{order: "first"}} 
+              md={{order: "first"}} 
+              lg={{order: "first"}} 
+              xl={{order: "first"}} 
+              xxl={{order: "first"}}
+              className={`${isMobile ? "pb-5 d-flex justify-content-center align-items-center" : "d-flex justify-content-center align-items-center"}`}
+            >
               <Row
                 xs={1} 
                 sm={1} 
@@ -73,7 +92,7 @@ function App() {
               lg={{order: "last"}} 
               xl={{order: "last"}} 
               xxl={{order: "last"}} 
-              className="d-flex justify-content-center align-items-center"
+              className={`${isMobile ? "pb-5" : ""}`}
             >
               <Image src="me.jpg" roundedCircle fluid className="w-50" />
             </Col>
