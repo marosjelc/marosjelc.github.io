@@ -1,5 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200;1000&display=swap');
 
+body {
+  background-color: aliceblue;
+}
+
+.red {
+  border: 1px #ff0000 solid;
+}
+
+.pt-6 {
+  padding-top: 5rem;
+}
+
 .App {
   text-align: center;
   min-height: 100%;
@@ -10,79 +22,36 @@
   background-color:aliceblue;
 }
 
-.red {
-  border: 1px #ff0000 solid;
-}
-
-.myPhoto {
-  background-image: url("../public/me.jpg");
-  background-size: cover;
-  width: 500px;
-  height: 500px;
-  border-radius: 500px;
+.AppNavbarBrand {
+  font-weight: 1000;
+  font-family: "Cairo Play";
 }
 
 .AppNavbarNav {
-  display: flex;
-  justify-content: flex-end;
-  min-width: 60vw;
+
 }
 
 .AppNavbarNavItem {
-  padding-left: 2vw;
-}
 
-.sectionContainer {
-  display: flex;
-  position: relative;
-  float: left;
-  width: 50%;
-  justify-content: center;
-}
-
-.sectionContainerLeft {
-  min-height: 70vh;
-  align-items: center;
-  justify-content: end;
-  & span:first-child {
-    font-size: 60px;
-    padding-bottom: 15vh;
-  };
-  & span {
-    position: absolute;
-    font-size: 20px;
-  }
 }
 
 .sectionHome {
   min-height: 100vh;
-  padding-top: 10vh;
-  font-family: "Cairo Play";
 }
 
 .sectionAbout {
   min-height: 100vh;
-  padding-top: 10vh;   
-  margin-top: -7vh;
 }
 
 .sectionBlog {
   min-height: 100vh;
-  padding-top: 10vh;
-  margin-top: -7vh;
 }
 
 .sectionContact {
   min-height: 100vh;
-  padding-top: 10vh;   
-  margin-top: -7vh;
 }
 
-.brand {
-  font-size: xx-large;
-  font-weight: 1000;
-  font-family: "Cairo Play";
-}
+
 
 /*
 .App-logo {
