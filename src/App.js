@@ -21,7 +21,7 @@ function App() {
     <div className="App"> 
       <Navbar fixed="top" className="AppNavbar" expand="lg" expanded={expanded}>
         <Container>
-          <Navbar.Brand className="red"><span className="AppNavbarBrand fs-2"></span></Navbar.Brand>
+          <Navbar.Brand className=""><span className="AppNavbarBrand fs-2"></span></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-expandable" className="burger">
             <Hamburger 
               duration={0.8}
@@ -32,12 +32,15 @@ function App() {
             />
           </Navbar.Toggle>
           <Navbar.Collapse id="navbar-expandable" className="justify-content-center">
-            <Nav className="AppNavbarNav">
+            <Nav className={`${expanded ? "expandedClass" : "w-50 justify-content-evenly"}`} defaultActiveKey="#home">
               <Nav.Item className="AppNavbarNavItem">
                 <Nav.Link href="#home">Home</Nav.Link>
               </Nav.Item>
               <Nav.Item className="AppNavbarNavItem">
                 <Nav.Link href="#about">About me</Nav.Link>
+              </Nav.Item>
+              <Nav.Item className="AppNavbarNavItem">
+                <Nav.Link href="#work">Projects & Work</Nav.Link>
               </Nav.Item>
               <Nav.Item className="AppNavbarNavItem">
                 <Nav.Link href="#blog">Blog</Nav.Link>
@@ -102,6 +105,11 @@ function App() {
       <section id="about" className="sectionAbout pt-6">
         <Container>
           <h1>About me</h1>
+        </Container>
+      </section>
+      <section id="work" className="sectionWork pt-6">
+        <Container>
+          <h1>Projects & Work</h1>
         </Container>
       </section>
       <section id="blog" className="sectionBlog pt-6">
