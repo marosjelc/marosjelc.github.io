@@ -29,33 +29,33 @@ function App() {
 
   return (
     <div className="App"> 
-      <Navbar fixed="top" className="AppNavbar" expand="lg" expanded={expanded}>
+      <Navbar fixed="top" variant="dark" className="AppNavbar" expand="lg" expanded={expanded}>
         <Container className={`${isLandscape ? "min-vw-100" : ""}`}>
           <Navbar.Brand className=""><span className="AppNavbarBrand fs-2">marosjelc.</span></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-expandable" className="burger">
             <Hamburger 
               duration={0.8}
               size={26} 
-              color="#000" 
+              color="#eee" 
               toggled={expanded} 
               toggle={() => setExpanded(expanded ? false : true)} 
             />
           </Navbar.Toggle>
           <Navbar.Collapse id="navbar-expandable" className="justify-content-center">
             <Nav className={`${expanded ? "" : "w-50 justify-content-evenly"}`} defaultActiveKey="#home">
-              <Nav.Item className="AppNavbarNavItem">
+              <Nav.Item className="AppNavbarNavItem fs-4">
                 <Nav.Link href="#home">Home</Nav.Link>
               </Nav.Item>
-              <Nav.Item className="AppNavbarNavItem">
+              <Nav.Item className="AppNavbarNavItem fs-4">
                 <Nav.Link href="#about">About me</Nav.Link>
               </Nav.Item>
-              <Nav.Item className="AppNavbarNavItem">
+              <Nav.Item className="AppNavbarNavItem fs-4">
                 <Nav.Link href="#work">Projects & Work</Nav.Link>
               </Nav.Item>
-              <Nav.Item className="AppNavbarNavItem">
+              <Nav.Item className="AppNavbarNavItem fs-4">
                 <Nav.Link href="#blog">Blog</Nav.Link>
               </Nav.Item>
-              <Nav.Item className="AppNavbarNavItem">
+              <Nav.Item className="AppNavbarNavItem fs-4">
                 <Nav.Link href="#contact">Contact</Nav.Link>
               </Nav.Item>
             </Nav>
@@ -63,7 +63,7 @@ function App() {
         </Container>
       </Navbar>
       <section id="home" className="sectionHome d-flex justify-content-center align-items-center">
-        <Container className="min-vw-100 min-vh-100 d-flex justify-content-center align-items-center">
+        <Container className={`${isLandscape ? "min-vw-100 min-vh-100 d-flex justify-content-center align-items-center" : "min-vh-100 d-flex justify-content-center align-items-center"}`}>
           <Row 
             xs={1} 
             sm={2} 
@@ -98,11 +98,11 @@ function App() {
                   Programmer, Content creator, Visual Novel Architect and more...
                 </Col>
                 <Col>
-                  <Button href="#" className="socialButton"><FaGithub className="fs-2" /></Button>
-                  <Button href="#" className="socialButton"><FaInstagram className="fs-2" /></Button>
-                  <Button href="#" className="socialButton"><FaFacebook className="fs-2" /></Button>
-                  <Button href="#" className="socialButton"><FaSpotify className="fs-2" /></Button>
-                  <Button href="#" className="socialButton"><FaDiscord className="fs-2" /></Button>
+                  <Button href="#" className="socialButton"><FaGithub className="fs-2 github" /></Button>
+                  <Button href="#" className="socialButton"><FaInstagram className="fs-2 instagram rounded-3" /></Button>
+                  <Button href="#" className="socialButton"><FaFacebook className="fs-2 facebook" /></Button>
+                  <Button href="#" className="socialButton"><FaSpotify className="fs-2 spotify" /></Button>
+                  <Button href="#" className="socialButton"><FaDiscord className="fs-2 discord" /></Button>
                 </Col>
               </Row>
             </Col>

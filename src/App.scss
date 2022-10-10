@@ -1,7 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo+Play:wght@200;1000&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Caveat+Brush&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Boogaloo&display=swap');
 
 body {
-  background-color: aliceblue;
+  background-color: #393E46;
+  color: #eee;
 }
 
 .red {
@@ -20,10 +23,47 @@ body {
   border: 1px goldenrod solid;
 }
 
+.active {
+  color: #00A8CC !important;
+}
+
 .burger {
   border: 0;
   margin-right: 0;
   padding-right: 0;
+}
+
+.github:hover {
+  color: #79B5DF;
+}
+
+.spotify:hover {
+  color: #1DD05D;
+}
+
+.discord:hover {
+  color: #5865F2;
+}
+
+.facebook:hover {
+  color: #2374E1;
+}
+
+.instagram {
+  background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); 
+  background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);    
+  color: #fff;
+  filter: saturate(0);
+  &.instagram:hover {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%); 
+    background: -webkit-radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);    
+    color: #fff;
+    filter: saturate(1);
+  }
+}
+
+.github, .instagram, .facebook, .spotify, .discord {
+  color: #eee;
 }
 
 .pt-6 {
@@ -33,16 +73,20 @@ body {
 .App {
   text-align: center;
   min-height: 100%;
-  background-color:aliceblue;
+  background-color:#393E46;
 }
 
 .AppNavbar {
-  background-color:aliceblue;
+  background-color:#222831;
 }
 
 .AppNavbarBrand {
   font-weight: 1000;
   font-family: "Cairo Play";
+}
+
+.AppNavbarNavItem {
+  font-family: "Boogaloo";
 }
 
 .socialButton {
