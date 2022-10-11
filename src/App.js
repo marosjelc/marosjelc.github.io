@@ -1,9 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
-import { Navbar, Container, Nav, Row, Col, Image, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container, Row, Col, Image, Button } from 'react-bootstrap';
 import './App.scss';
 import { Fade as Hamburger } from 'hamburger-react';
+import { Link } from 'react-scroll';
 import { FaGithub, FaInstagram, FaFacebook, FaSpotify, FaDiscord } from "react-icons/fa";
+import { LoremIpsum } from 'react-lorem-ipsum';
+import { MdOutlineWavingHand } from 'react-icons/md';
 
 function App() {
   const [expanded, setExpanded] = useState(false);
@@ -16,7 +19,7 @@ function App() {
       setDimensions({height: window.innerHeight, width: window.innerWidth})
       const ismobile = window.innerWidth < 576;
       if (ismobile !== isMobile) setIsMobile(isMobile);
-    }, false);
+    }, false); 
   }, [isMobile]);
 
   useEffect(() => {
@@ -27,11 +30,21 @@ function App() {
     }, false);
   }, [isLandscape]);
 
+  const scrollToTop = () =>{
+    window.scrollTo({
+      top: 0, 
+      behavior: 'smooth'
+      /* you can also use 'auto' behaviour
+         in place of 'smooth' */
+    });
+    
+  };
+
   return (
     <div className="App"> 
-      <Navbar fixed="top" variant="dark" className="AppNavbar" expand="lg" expanded={expanded}>
-        <Container className={`${isLandscape ? "min-vw-100" : ""}`}>
-          <Navbar.Brand className=""><span className="AppNavbarBrand fs-2">marosjelc.</span></Navbar.Brand>
+      <Navbar fixed="top" variant="dark" className={`AppNavbar`} expand="lg" expanded={expanded}>
+        <Container className="">
+          <Navbar.Brand><span onClick={scrollToTop} className="AppNavbarBrand fs-2">marosjelc.</span></Navbar.Brand>
           <Navbar.Toggle aria-controls="navbar-expandable" className="burger">
             <Hamburger 
               duration={0.8}
@@ -42,28 +55,68 @@ function App() {
             />
           </Navbar.Toggle>
           <Navbar.Collapse id="navbar-expandable" className="justify-content-center">
-            <Nav className={`${expanded ? "" : "w-50 justify-content-evenly"}`} defaultActiveKey="#home">
-              <Nav.Item className="AppNavbarNavItem fs-4">
-                <Nav.Link href="#home">Home</Nav.Link>
+            <Nav className={`${expanded ? "" : "w-50 justify-content-evenly"}`} defaultActiveKey="home" id="navbar-nav">
+              <Nav.Item className="AppNavbarNavItem fs-5">
+                <Link 
+                  className="nav-link" 
+                  activeClass="active" 
+                  spy={true} 
+                  smooth={true}
+                  offset={-10}
+                  to="home">
+                    Home
+                </Link>
               </Nav.Item>
-              <Nav.Item className="AppNavbarNavItem fs-4">
-                <Nav.Link href="#about">About me</Nav.Link>
+              <Nav.Item className="AppNavbarNavItem fs-5">
+                <Link 
+                  className="nav-link" 
+                  activeClass="active" 
+                  spy={true} 
+                  smooth={true}
+                  offset={-10}
+                  to="about">
+                    About me
+                </Link>
               </Nav.Item>
-              <Nav.Item className="AppNavbarNavItem fs-4">
-                <Nav.Link href="#work">Projects & Work</Nav.Link>
+              <Nav.Item className="AppNavbarNavItem fs-5">
+                <Link 
+                  className="nav-link" 
+                  activeClass="active" 
+                  spy={true} 
+                  smooth={true}
+                  offset={-10}
+                  to="work">
+                    Projects & Work
+                </Link>
               </Nav.Item>
-              <Nav.Item className="AppNavbarNavItem fs-4">
-                <Nav.Link href="#blog">Blog</Nav.Link>
+              <Nav.Item className="AppNavbarNavItem fs-5">
+                <Link 
+                  className="nav-link" 
+                  activeClass="active" 
+                  spy={true} 
+                  smooth={true}
+                  offset={-10}
+                  to="blog">
+                    Blog
+                </Link>
               </Nav.Item>
-              <Nav.Item className="AppNavbarNavItem fs-4">
-                <Nav.Link href="#contact">Contact</Nav.Link>
+              <Nav.Item className="AppNavbarNavItem fs-5">
+                <Link 
+                  className="nav-link" 
+                  activeClass="active" 
+                  spy={true} 
+                  smooth={true}
+                  offset={-10}
+                  to="contact">
+                    Contact
+                </Link>
               </Nav.Item>
             </Nav>
           </Navbar.Collapse>
         </Container>
       </Navbar>
       <section id="home" className="sectionHome d-flex justify-content-center align-items-center">
-        <Container className={`${isLandscape ? "min-vw-100 min-vh-100 d-flex justify-content-center align-items-center" : "min-vh-100 d-flex justify-content-center align-items-center"}`}>
+        <Container className={`min-vh-100 d-flex justify-content-center align-items-center`}>
           <Row 
             xs={1} 
             sm={2} 
@@ -80,7 +133,7 @@ function App() {
               lg={{order: "first"}} 
               xl={{order: "first"}} 
               xxl={{order: "first"}}
-              className={`${isMobile ? "pb-5 d-flex justify-content-center align-items-center" : "d-flex justify-content-center align-items-center"}`}
+              className={`d-flex justify-content-center align-items-center ${isMobile ? "pb-5" : ""}`}
             >
               <Row
                 xs={1} 
@@ -92,17 +145,24 @@ function App() {
                 className=""
               >
                 <Col>
-                  <h1>Hello, I'm Maroš</h1>
+                  <h1>Hey, I'm Maroš <MdOutlineWavingHand className="tgold fs-2" /></h1>
                 </Col>
                 <Col>
-                  Programmer, Content creator, Visual Novel Architect and more...
+                  <figure className="text-center">
+                    <blockquote className="blockquote">
+                      <p className="fst-italic">It was never so bad, that it could not be even more worse.</p>
+                    </blockquote>
+                    <figcaption className="blockquote-footer">
+                      Maroš Jelč
+                    </figcaption>
+                  </figure>
                 </Col>
                 <Col>
-                  <Button href="#" className="socialButton"><FaGithub className="fs-2 github" /></Button>
-                  <Button href="#" className="socialButton"><FaInstagram className="fs-2 instagram rounded-3" /></Button>
-                  <Button href="#" className="socialButton"><FaFacebook className="fs-2 facebook" /></Button>
-                  <Button href="#" className="socialButton"><FaSpotify className="fs-2 spotify" /></Button>
-                  <Button href="#" className="socialButton"><FaDiscord className="fs-2 discord" /></Button>
+                  <Button href="https://github.com/marosjelc/" target="_blank" className="socialButton"><FaGithub className="fs-2 github" /></Button>
+                  <Button href="https://instagram.com/marosjelc/" target="_blank" className="socialButton"><FaInstagram className="fs-2 instagram rounded-3" /></Button>
+                  <Button href="https://facebook.com/MarosJelc93" target="_blank" className="socialButton"><FaFacebook className="fs-2 facebook" /></Button>
+                  <Button href="https://open.spotify.com/user/marosjelc" target="_blank" className="socialButton"><FaSpotify className="fs-2 spotify" /></Button>
+                  <Button href="https://discord.com/users/401811354702315521" target="_blank" className="socialButton"><FaDiscord className="fs-2 discord" /></Button>
                 </Col>
               </Row>
             </Col>
@@ -121,8 +181,59 @@ function App() {
         </Container>
       </section>
       <section id="about" className="sectionAbout pt-6">
-        <Container>
-          <h1>About me</h1>
+        <Container className={`min-vh-100 d-flex justify-content-center align-items-center `}>
+          <Row 
+            xs={1} 
+            sm={2} 
+            md={2} 
+            lg={2} 
+            xl={2} 
+            xxl={2}
+            className={`${isMobile ? "" : ""}`}
+          >
+            <Col 
+              xs={{order: "first"}} 
+              sm={{span: 6, order: "last"}} 
+              md={{order: "last"}} 
+              lg={{order: "last"}} 
+              xl={{order: "last"}} 
+              xxl={{order: "last"}}
+              className={`d-flex justify-content-center align-items-center ${isMobile ? "pb-5" : ""}`}
+            >
+              <Row
+                xs={1} 
+                sm={1} 
+                md={1} 
+                lg={1} 
+                xl={1} 
+                xxl={1}
+                className=""
+              >
+                <Col>
+                  <h1 className="fw-bold">Few words about me</h1>
+                </Col>
+                <Col className="fs-5">
+                  <LoremIpsum p={1} avgWordsPerSentence={10} avgSentencesPerParagraph={5} />
+                </Col>
+                <Col>
+                  <Row>
+                    <Col><Button href="#" className={`cvDownload ${(isMobile) ? "w-50" : "w-25"}`}><span>Get my CV</span></Button></Col>
+                  </Row>
+                </Col>
+              </Row>
+            </Col>
+            <Col 
+              xs={{order: "last"}} 
+              sm={{order: "first"}} 
+              md={{order: "first"}} 
+              lg={{order: "first"}} 
+              xl={{order: "first"}} 
+              xxl={{order: "first"}} 
+              className={`${isMobile ? "pb-5" : ""}`}
+            >
+              <Image src="me2.jpg" roundedCircle fluid className={`${isMobile ? "w-50 d-none" : "w-50"}`} />
+            </Col>
+          </Row>
         </Container>
       </section>
       <section id="work" className="sectionWork pt-6">
