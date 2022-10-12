@@ -150,7 +150,7 @@ function App() {
                 <Col>
                   <figure className="text-center">
                     <blockquote className="blockquote">
-                      <p className="fst-italic">It was never so bad, that it could not be even worse.</p>
+                      <p className="fst-italic">It is never so bad, that it couldn't be even worse.</p>
                     </blockquote>
                     <figcaption className="blockquote-footer">
                       Maroš Jelč
