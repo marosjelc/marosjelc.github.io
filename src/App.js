@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { useState, useEffect } from 'react';
-import { Navbar, Nav, Container, Row, Col, Image, Button } from 'react-bootstrap';
+import { Navbar, Nav, Container, Row, Col, Image, Button, Accordion } from 'react-bootstrap';
 import './App.scss';
 import { Fade as Hamburger } from 'hamburger-react';
 import { Link } from 'react-scroll';
@@ -210,7 +210,7 @@ function App() {
                 className=""
               >
                 <Col>
-                  <h1 className="fw-bold">Few words about me</h1>
+                  <h1 className="fw-bold pb-3">Few words about me</h1>
                 </Col>
                 <Col className="fs-5">
                   <LoremIpsum p={1} avgWordsPerSentence={10} avgSentencesPerParagraph={5} />
@@ -237,8 +237,85 @@ function App() {
         </Container>
       </section>
       <section id="work" className="sectionWork pt-6">
-        <Container>
-          <h1>Projects & Work</h1>
+      <Container className={`min-vh-100 d-flex justify-content-center align-items-center`}>
+          <Row 
+            xs={1} 
+            sm={2} 
+            md={2} 
+            lg={2} 
+            xl={2} 
+            xxl={2}
+            className={`${isMobile ? "" : ""}`}
+          >
+            <Col 
+              xs={{order: "last"}} 
+              sm={{span: 6, order: "first"}} 
+              md={{order: "first"}} 
+              lg={{order: "first"}} 
+              xl={{order: "first"}} 
+              xxl={{order: "first"}}
+              className={`d-flex justify-content-center align-items-center ${isMobile ? "pb-5" : ""}`}
+            >
+              <Row
+                xs={1} 
+                sm={1} 
+                md={1} 
+                lg={1} 
+                xl={1} 
+                xxl={1}
+                className=""
+              >
+                <Col>
+                  <h1 className="pb-3 fw-bold">Projects & Work</h1>
+                </Col>
+                <Col className="fs-5">
+                  <LoremIpsum p={2} avgWordsPerSentence={10} avgSentencesPerParagraph={5} />
+                </Col>
+              </Row>
+            </Col>
+            <Col 
+              xs={{order: "last"}} 
+              sm={{order: "first"}} 
+              md={{order: "first"}} 
+              lg={{order: "first"}} 
+              xl={{order: "first"}} 
+              xxl={{order: "first"}} 
+              className={`${isMobile ? "pb-5" : ""}`}
+            >
+              <Accordion>
+                <Accordion.Item eventKey="0">
+                  <Accordion.Header>Project "Name_of_project" #1</Accordion.Header>
+                  <Accordion.Body>
+                    <LoremIpsum p={2} avgWordsPerSentence={10} avgSentencesPerParagraph={5} />
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="1">
+                  <Accordion.Header>Project "Name_of_project" #2</Accordion.Header>
+                  <Accordion.Body>
+                    <LoremIpsum p={2} avgWordsPerSentence={10} avgSentencesPerParagraph={5} />
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="2">
+                  <Accordion.Header>Project "Name_of_project" #3</Accordion.Header>
+                  <Accordion.Body>
+                    <LoremIpsum p={2} avgWordsPerSentence={10} avgSentencesPerParagraph={5} />
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="3">
+                  <Accordion.Header>Project "Name_of_project" #4</Accordion.Header>
+                  <Accordion.Body>
+                    <LoremIpsum p={2} avgWordsPerSentence={10} avgSentencesPerParagraph={5} />
+                  </Accordion.Body>
+                </Accordion.Item>
+                <Accordion.Item eventKey="4">
+                  <Accordion.Header>Project "Name_of_project" #5</Accordion.Header>
+                  <Accordion.Body>
+                    <LoremIpsum p={2} avgWordsPerSentence={10} avgSentencesPerParagraph={5} />
+                  </Accordion.Body>
+                </Accordion.Item>
+              </Accordion>
+            </Col>
+          </Row>
         </Container>
       </section>
       <section id="blog" className="sectionBlog pt-6">
