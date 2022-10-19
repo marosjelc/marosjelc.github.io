@@ -3,57 +3,76 @@
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Pro&display=swap");
 
+:root,:root.dark {
+  --bg-color: 1,1,1;
+  --txt-color: #eee;
+}
+
+:root.light {
+  --bg-color: 238,238,238;
+  --txt-color: #010101;
+}
+
+html {
+  scroll-behavior: smooth;
+  scrollbar-color: #00ff00;
+}
+
 body {
-  background-color: #161616;
-  color: #eee;
   position: relative;
-  font-family: "Crimson Pro";
+  background: rgb(var(--bg-color));
+  color: var(--txt-color);
+  overflow-x: hidden;
   /* font-size: 18px; */
 }
 
-.nav-link {
+.App {
+  text-align: center;
+  min-height: 100%;
+}
+
+.AppNavbar {
+  background: none;
+}
+
+.AppNavbarBg {
+  background: rgb(var(--bg-color));
+  color: var(--txt-color);
+}
+
+.AppNavbarNav {
+  min-width: 50vw;
+  align-items: center;
+}
+
+.AppNavbarNavBrand {
+  font-family: "Fredoka One";
+  font-size: 40px;
+  padding: 5px;
+  text-decoration: none;
+  color: #010101;
   &:hover {
     cursor: pointer;
+    color: #010101;
+  }
+  &.AppNavbarNavBrandAlt {
+    color: rgb(var(--txt-color));
+    &:hover {
+      color: rgb(var(--txt-color));
+    }
   }
 }
 
-a {
-  &:focus {
+.socialButton {
+  border: 0;
+  background: none;
+  &:hover {
+    background: none;
+    border: 0;
     outline: none !important;
-    background: none !important;
     outline-offset: none !important;
     box-shadow: none !important;
-  }
-}
-
-.red {
-  border: 1px #ff0000 solid;
-}
-
-.green {
-  border: 1px #00ff00 solid;
-}
-
-.blue {
-  border: 1px #0000ff solid;
-}
-
-.gold {
-  border: 1px goldenrod solid;
-}
-
-.tgold {
-  color: gold;
-}
-
-.active {
-  color: #3282B8 !important;
-}
-
-.burger {
-  border: 0;
-  margin-right: 0;
-  padding-right: 0;
+  } 
 }
 
 .github:hover {
@@ -89,162 +108,85 @@ a {
   color: #eee;
 }
 
-.pt-6 {
-  padding-top: 5rem;
+.hello {
+  color: rgb(var(--bg-color));
 }
 
-.App {
-  text-align: center;
-  min-height: 100%;
-  background-color:#161616;
+.iam-words {
+  display: inline;
+  text-indent: 10px;
 }
 
-.AppNavbar {
-  /* background-color:#222831; */
-  background-color: #161616;
+.iam-words-1 span {
+  padding-bottom: 10px;
+  position: absolute;
+  opacity: 0;
+  overflow: hidden;
+  animation: rotateWord 9s linear infinite 0s;
 }
 
-.AppNavbarBrand {
-  font-family: "Fredoka One";
-  color: #eee;
-  text-decoration: none;
-  &:hover {
-    color: #eee;
-    cursor: pointer;
-  }
+.iam-words-1 span:nth-child(2) { 
+  animation-delay: 3s; 
+}
+.iam-words-1 span:nth-child(3) { 
+  animation-delay: 6s; 
 }
 
-.AppNavbarNavItem {
-  font-family: "Dosis";
-  font-weight: bold;
-}
-
-.cvDownload {
-  background: #0F4C75;
-  border: 2px #eee solid;
-  position: relative;
-  z-index: 10;
-  font-family: "Oswald";
-  font-weight: bold;
-
-  &::after {
-    position: absolute;
-    content: "";
-    top: 0;
-    left: 0;
-    width: 0;
-    height: 100%;
-    background: #3282B8;
-    transition: all .35s;
-    border-radius: inherit;
-    z-index: -1;
-  }
-
-  &:hover {
-    background: #0F4C75;
-    border: 2px #eee solid;
-    &::after {
-      width: 100%;
-    }
-  }
+@keyframes rotateWord {
+  0% { opacity: 0; }
+  2% { opacity: 0; -webkit-transform: translateY(-30px); transform: translateY(-30px); }
+  5% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px);}
+  17% { opacity: 1; -webkit-transform: translateY(0px); transform: translateY(0px); }
+  20% { opacity: 0; -webkit-transform: translateY(30px); transform: translateY(30px); }
+  80% { opacity: 0; }
+  100% { opacity: 0; }
 }
 
 
-.accordion-item {
-  border: 1px #eee solid;
-  background: #eee;
-  color: #161616;
-}
-
-.accordion-button {
-  background: #161616;
-  color: #eee;
-  font-family: "Dosis";
-  font-weight: bold;
-  &:focus {
-    border: 0;
-    box-shadow: none;
-  }
-  &::after {
-    background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%23eeeeee'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;
-  }
-  &:not(.collapsed) {
-    color: #3282B8;
-    background: #161616;
-    &::after {
-      background-image: url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='%233282B8'><path fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/></svg>") !important;  
-    }
-  }
-}
-
-.cvDownload span {
-  z-index: 20;
-}
-
-.socialButton {
-  border: 0;
-  background: none;
-  &:hover {
-    background: none;
-    border: 0;
-    outline: none !important;
-    outline-offset: none !important;
-    box-shadow: none !important;
-  } 
-}
-.sectionHome {
+.s {
+  min-width: 100vw;
   min-height: 100vh;
 }
 
-.sectionAbout {
-  min-height: 100vh;
+.ph {
+  min-width: 100%;
+  min-height: 80vh;
+  background-color: none;
+  /*border: 1px var(--txt-color) dashed;*/
 }
 
-.sectionWork {
-  min-height: 100vh;
+.bg {
+  background-image: url("../public/bg.jpg");
+  background-position: 10 0;
+  background-repeat: no-repeat;
+  background-size: cover;
+  mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 75%, transparent 100%);
 }
 
-.sectionBlog {
-  min-height: 100vh;
+.text-color-gold {
+  color: goldenrod;
 }
 
-.sectionContact {
-  min-height: 100vh;
+
+
+
+
+
+
+
+
+.red {
+  border: 1px #ff0000 solid;
 }
 
-/*
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.green {
+  border: 1px #00ff00 solid;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.blue {
+  border: 1px #0000ff solid;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.gold {
+  border: 1px goldenrod solid;
 }
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-*/
