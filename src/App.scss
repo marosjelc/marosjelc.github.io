@@ -1,21 +1,28 @@
 @import url("https://fonts.googleapis.com/css2?family=Dosis&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Anton&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Oswald&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Yellowtail&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Crimson+Pro&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=La+Belle+Aurore&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
 
 :root,:root.dark {
   --bg-color: 1,1,1;
   --txt-color: #eee;
+  --txt-color-alt: #010101;
+  --active: #DA0037;
 }
 
 :root.light {
   --bg-color: 238,238,238;
   --txt-color: #010101;
+  --txt-color-alt: #eee;
+  --active: #DA0037;
 }
 
 html {
   scroll-behavior: smooth;
-  scrollbar-color: #00ff00;
 }
 
 body {
@@ -46,14 +53,16 @@ body {
 }
 
 .AppNavbarNavBrand {
-  font-family: "Fredoka One";
+  /*font-family: "Fredoka One";*/
+  font-family: "La Belle Aurore";
+  font-weight: bold;
   font-size: 40px;
   padding: 5px;
   text-decoration: none;
-  color: #010101;
+  color: var(--txt-color-alt);
   &:hover {
     cursor: pointer;
-    color: #010101;
+    color: var(--txt-color-alt);
   }
   &.AppNavbarNavBrandAlt {
     color: rgb(var(--txt-color));
@@ -63,6 +72,27 @@ body {
   }
 }
 
+.AppNavbarNavLink {
+  font-family: "Bebas Neue";
+  color: var(--txt-color-alt);
+  font-size: 20px;
+  text-decoration: none;
+  &:hover {
+    color: var(--active) !important;
+    cursor: pointer !important;
+  }
+  &.AppNavbarNavLinkAlt {
+    color: rgb(var(--txt-color));
+    &:hover {
+      color: rgb(var(--txt-color));
+    }
+  }
+  &.AppNavbarNavLinkActive {
+    color:var(--active);
+    text-decoration: underline;
+  }
+}
+/*
 .socialButton {
   border: 0;
   background: none;
@@ -107,9 +137,10 @@ body {
 .github, .instagram, .facebook, .spotify, .discord {
   color: #eee;
 }
-
+*/
 .hello {
-  color: rgb(var(--bg-color));
+  color: var(--txt-color-alt);
+  font-family: "Anton";
 }
 
 .iam-words {
@@ -142,7 +173,6 @@ body {
   100% { opacity: 0; }
 }
 
-
 .s {
   min-width: 100vw;
   min-height: 100vh;
@@ -161,6 +191,43 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   mask-image: linear-gradient(to bottom, rgba(0, 0, 0, 1.0) 75%, transparent 100%);
+}
+
+.progress {
+  height: 15px;
+  margin: 10px;
+  transform-origin: left;
+  border-radius: 0%;
+  background: rgba(255,255,255,0.25);
+  & > * {
+    transform: scaleX(0);
+  }
+}
+
+.progress-bar {
+  background: var(--active) !important;
+  opacity: 1;
+}
+
+.progress-animation {
+  @extend .progress;
+  & > * {
+    animation: progress 1.5s ease-in-out forwards;
+  }
+}
+
+@keyframes progress {
+  from {
+    transform: scaleX(0);
+    transform-origin: left;
+  }
+  to {
+    transform-origin: left;
+    transform: scaleX(1);
+  }
+}
+
+.progressBarLabel {
 }
 
 .text-color-gold {
